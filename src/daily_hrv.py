@@ -21,10 +21,15 @@ df = pd.read_csv(file_path / 'hrv.csv')
 df['timestamp'] = pd.to_datetime(df['timestamp'])
 df['date'] = df['timestamp'].dt.date
 
+def p25(x):
+  return x.quantile(0.25)
+
+
 daily_summary = df.groupby('date').agg(
     avg_rmssd=('rmssd', 'mean'),
     min_rmssd=('rmssd', 'min'),
     max_rmssd=('rmssd', 'max'),
+    percentile_25=('rmssd', p25),
     avg_lf=('low_frequency', 'mean'),
     avg_hf=('high_frequency', 'mean'),
     lf_hf_ratio=('low_frequency', lambda x: (x / df.loc[x.index, 'high_frequency']).mean()),

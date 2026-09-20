@@ -1,0 +1,13 @@
+---
+title: "AI Workshop Abstract"
+output: pdf_document
+date: "2026-09-19"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Abstract
+
+Stress is an important factor in student well-being, yet it can be difficult to measure objectively using self-reported information alone. This study investigates whether physiological and behavioral data collected from Fitbit wearable devices can be used to analyze and predict the levels of mental stress and anxiety for college students. Physiological data elements include activity level, Root Mean Square of Successive Differences (RMSSD) of heart rate variability (HRV), heart rate-to-heart rate variability ratio (lf/hf), deep sleep duration, sleep quality score, step count, and oxygen saturation. Additionally, the participants provided daily ratings of stress and anxiety using a mobile application. This publicly available data was collected throughout the duration of a semester (February to July 2026) from 35 undergraduate volunteers at two universities in Mexico (https://doi.org/10.5281/zenodo.18706837). We examined the correlations between self-reported stress/anxiety and HRV for each individual. Correlation strength and direction varied substantially across participants. The group-level mean correlation was effectively close to zero based on this dataset. These findings indicate that the psychological stress to physiological relationship is highly idiosyncratic rather than uniform, reflecting individual differences in autonomic reactivity, baseline HRV, coping style, and behavioral expression of stress.

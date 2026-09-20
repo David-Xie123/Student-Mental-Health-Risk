@@ -23,6 +23,7 @@ df = pd.read_csv(file_path / 'daily_questions.csv')
 # Define the columns you want to convert
 timestamp_cols = ['timeStampScheduled', 'timeStampSent', 'timeStampStart', 'timeStampStop']
 df['date'] = pd.to_datetime(df['timeStampSent'] + df['timeZoneOffset'], unit='s').dt.date
+df['dow'] = pd.to_datetime(df['timeStampSent'] + df['timeZoneOffset'], unit='s').dt.weekday
 
 # Option A: Convert to Local Time using the built-in timeZoneOffset column
 for col in timestamp_cols:

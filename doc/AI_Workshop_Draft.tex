@@ -1,0 +1,106 @@
+% 1. SETUP & DOCUMENT CLASS
+\documentclass[11pt, a4paper, oneside]{article}
+
+% 2. PACKAGES & DEPENDENCIES
+\usepackage[utf8]{inputenc}       % Safe text encoding
+\usepackage[margin=1in]{geometry}  % 1-inch margins
+\usepackage{amsmath, amssymb}      % Advanced math formatting
+\usepackage{graphicx}              % Required to insert images
+\usepackage{booktabs}              % Professional quality tables
+\usepackage{hyperref}              % Clickable cross-references & links
+\usepackage{microtype}             % Improves typography spacing
+
+% Hyperref configuration
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    citecolor=black,
+}
+
+% 3. DOCUMENT METADATA
+\title{\textbf{Analysis of Psychological Stress Responses to Physiological Data from Wearable Devices: A Study of College Student Cohorts}}
+\author{\textbf{David Xie} \\ Department of Applied Statistics and Probability, UC Santa Barbara}
+\date{\today}
+
+% 4. CORE CONTENT
+\begin{document}
+
+\maketitle % Generates the title page element
+
+\begin{abstract}
+Stress is an important factor in student well-being, yet it can be difficult to measure objectively using self-reported information alone. This study investigates whether physiological and behavioral data collected from Fitbit wearable devices can be used to analyze and predict the levels of mental stress and anxiety for college students. Physiological data elements include activity level, Root Mean Square of Successive Differences (RMSSD) of heart rate variability (HRV), heart rate-to-heart rate variability ratio (lf/hf), deep sleep duration, sleep quality score, step count, and oxygen saturation. Additionally, the participants provided daily ratings of stress and anxiety using a mobile application. This publicly available data was collected throughout the duration of a semester (February to July 2026) from 35 undergraduate volunteers at two universities in Mexico (https://doi.org/10.5281/zenodo.18706837). We examined the correlations between self-reported stress/anxiety and HRV for each individual. Correlation strength and direction varied substantially across participants. The group-level mean correlation was effectively close to zero based on this dataset. These findings indicate that the psychological stress to physiological relationship is highly idiosyncratic rather than uniform, reflecting individual differences in autonomic reactivity, baseline HRV, coping style, and behavioral expression of stress.
+\end{abstract}
+
+\hrule
+\tableofcontents
+\vspace{0.8cm}
+\hrule
+
+\section{Introduction}
+Welcome to your LaTeX document! This template is pre-configured with everything you need. You can write your body paragraphs smoothly. To cite a source inline, you can use the cite command like this \cite{sample_reference}.
+
+\section{Formatting Examples}
+Here are a few essential structural blocks to jumpstart your writing.
+
+\subsection{Mathematics and Equations}
+You can write inline math like this: $E = mc^2$. For standalone equations that require number labels, use the \texttt{equation} block:
+\begin{equation}
+    f(x) = \int_{a}^{b} \frac{1}{x} \, dx
+\end{equation}
+
+\subsection{Adding Tables}
+In this table below, the 95\% CI for Stress is between stress and average RMSSD. All \text{${\rho}$} values (Spearman's rank correlation coefficient) are between the respective coefficient and average RMSSD. Note that some participants (out of 35) have been removed due to lack of data.
+\begin{table}[h]
+    \centering
+    \caption{A table of correlations across the participants.}
+    \begin{tabular}{llllll}
+        \toprule
+        \textbf{Participant} & \textbf{Number} & \textbf{RMSSD}& \textbf{95\% CI for Stress} & \textbf{${\rho}$ stress} & \textbf{${\rho}$ anxiety}\\
+        \midrule
+        1    & 27   & 69.260  & [-0.2, 0.53] & 0.148 & 0.191\\
+        2    & 06   & 29.346  &[-0.14, 0.97]& 0.519 & 0.757\\
+        4    & 06   & 39.121  &[-0.84, 0.77]& 0.007 & -0.105\\
+        5    & 85   & 27.947  & [0.02, 0.43] & 0.200 & 0.234\\
+        6    & 32   & 103.713&[-0.26, 0.44]& 0.080 & 0.103\\
+        7    & 83   & 126.437& [-0.1, 0.33] & 0.181 & 0.120\\
+        8    & 89   & 54.964  & [0.04, 0.43] & 0.242 & 0.244\\
+        10  & 34   & 95.730  & [-0.2, 0.46] & 0.064 & 0.148\\
+        17  & 05   & 43.132  & [0.62, 1.0]  & 0.996 & 0.971\\
+        19  & 41   & 105.997&[-0.52, 0.06]& 0.064 & -0.255\\
+        20  & 38   & 60.337  & [0.08, 0.63] & 0.044 & 0.390\\
+        22  & 19   & 111.330& [-0.19, 0.66]& 0.046 & 0.288\\
+        24  & 09   & 107.419& [-0.31, 0.06]& -0.294& -0.130\\
+        26  & 68   & 67.118  & [-0.04, 0.42]& 0.086 & 0.204\\
+        27  & 84   & 69.800  & [-0.4, 0.01]  & -0.144& -0.204\\
+        28  & 35   & 26.514  & [-0.52, 0.12]& -0.382& -0.225\\
+        29  & 28   & 62.548  & [-0.25, 0.48]& 0.160 & 0.134\\
+        30  & 75   & 40.945  & [-0.33, 0.12]& 0.155 & -0.106\\
+        32  & 71   & 71.783  &[-0.53, -0.12]&-0.249& -0.340\\
+        33  & 49   & 64.126  & [-0.15, 0.4]  & 0.152 & 0.139\\
+        34  & 51   & 63.114  & [-0.28, 0.27]& -0.134& -0.010\\
+        \bottomrule
+    \end{tabular}
+    \label{tab:sample_table}
+\end{table}
+
+\subsection{Inserting Figures}
+To insert an image file, ensure the file (e.g., \texttt{chart.png}) is uploaded to your working directory and use the code below:
+\begin{figure}[h]
+    \centering
+    % \includegraphics[width=0.6\textwidth]{chart.png}
+    \caption{Placeholder caption for your visual data.}
+    \label{fig:sample_figure}
+\end{figure}
+
+\section{Conclusion}
+This concludes the default structural blueprint of the document.
+
+% 5. BIBLIOGRAPHY & REFERENCES
+\begin{thebibliography}{99}
+\bibitem{sample_reference}
+Author, A. (2026). \textit{The Title of the Authored Work}. Journal of Examples, 12(3), 45-67.
+\end{thebibliography}
+
+\end{document}

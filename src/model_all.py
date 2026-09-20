@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
+from sklearn.ensemble import RandomForestRegressor
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import mean_squared_error, r2_score, root_mean_squared_error
 import argparse
@@ -23,12 +24,12 @@ args = parser.parse_args()
 file_path = Path(args.data_path)
 # 1. Load your master merged dataset
 # df = pd.read_csv('../data/combined_health_data.csv')
-df = pd.read_csv(file_path / "merged_health_data.csv")
+df = pd.read_csv(file_path / "combined_health_data.csv")
 
 # 2. Select variables based on your exact column schema
-target_col = 'stress'
+target_col = 'anxiety'
 feature_cols = [
-    'avg_rmssd', 'percentile_25', 'lf_hf_ratio',             # HRV Biometrics
+    'avg_rmssd', 'lf_hf_ratio',             # HRV Biometrics
     'overall_score_x', 'deep_sleep_in_minutes_x', # Sleep Metrics
     'LIGHTLY_ACTIVE', 'MODERATELY_ACTIVE', 'SEDENTARY', 'VERY_ACTIVE', # Activity Levels
     'avg_oxygen', 'min_oxygen'              # Blood Oxygen Biometrics
@@ -77,3 +78,13 @@ for feature, coef in sorted_coefficients:
     print(f"{feature:<25}: {coef:+.4f} ({direction})")
 
 print(f"\nBaseline Constant (Intercept): {model.intercept_:.2f}")
+
+rf_model = RandomForestRegressor(n_estimators=100, random_state=42, n_jobs=-1)
+rf_model.fit(X_train_scaled, y_train)
+
+# 7. Make Predictions
+y_pred = rf_model.predict(X_test_scaled)
+print("--- Model Performance Summary ---")
+print(f"Mean Squared Error (MSE): {mean_squared_error(y_test, y_pred):.2f}")
+print(f"R-squared Score (R²): {r2_score(y_test, y_pred):.2f}")
+print(f"Root Mean Squared Error: {root_mean_squared_error(y_test, y_pred):.2f}")

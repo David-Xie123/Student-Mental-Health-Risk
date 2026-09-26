@@ -9,6 +9,7 @@
 \usepackage{booktabs}              % Professional quality tables
 \usepackage{hyperref}              % Clickable cross-references & links
 \usepackage{microtype}             % Improves typography spacing
+\usepackage{tabularx}
 
 % Hyperref configuration
 \hypersetup{
@@ -55,7 +56,7 @@ In this table below, the 95\% CI for Stress is between stress and average RMSSD.
 \begin{table}[h]
     \centering
     \caption{A table of correlation coefficients across the participants.}
-    \begin{tabular}{lllllll}
+    \begin{tabularx}{\textwidth}{XXXXXXX}
         \toprule
         \textbf{Participant} & \textbf{Number} & \textbf{RMSSD} & \textbf{${\rho}$ stress} & \textbf{95\% CI for Stress} & \textbf{${\rho}$ anxiety} & \textbf{95\% CI for Anxiety}\\
         \midrule
@@ -81,7 +82,7 @@ In this table below, the 95\% CI for Stress is between stress and average RMSSD.
         33  & 49   & 64.126    & 0.152 & [-0.13, 0.42] & 0.139 & [-0.15, 0.4]\\
         34  & 51   & 63.114  & -0.134& [-0.4, 0.15] & -0.010 & [-0.28, 0.27]\\
         \bottomrule
-    \end{tabular}
+    \end{tabularx}
     \label{tab:sample_table}
 \end{table}
 

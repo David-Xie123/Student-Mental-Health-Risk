@@ -16,8 +16,8 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 
-OUT = "/sessions/pensive-trusting-maxwell/mnt/outputs"
-FIG = "/sessions/pensive-trusting-maxwell/mnt/student_mental_health/analysis/figures"
+OUT = "C:/Users/david/Documents/Research/Student-Mental-Health-Risk/data"
+FIG = "C:/Users/david/Documents/Research/Student-Mental-Health-Risk/figures"
 os.makedirs(FIG, exist_ok=True)
 
 INK = "#3f4b57"; MUTED = "#8a97a3"; GRID = "#c9d2da"
@@ -31,9 +31,9 @@ plt.rcParams.update({
     "axes.spines.top": False, "axes.spines.right": False, "figure.dpi": 170,
 })
 
-d = pd.read_csv(f"{OUT}/ssaqs_analysis_table.csv", parse_dates=["t_local"],
-                usecols=["subject", "t_local", "stress"])
-d["date"] = d.t_local.dt.normalize()
+d = pd.read_csv(f"{OUT}/combined_health_data.csv", parse_dates=["date"],
+                usecols=["subject", "date", "stress"])
+# d["date"] = d.t_local.dt.normalize()
 d = d.sort_values(["subject", "date"])
 
 mu = d.groupby("subject").stress.mean()

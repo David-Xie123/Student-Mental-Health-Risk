@@ -98,11 +98,20 @@ data = {
 
 df_combined = X_scaled.copy()
 df_combined['anxiety'] = y['anxiety']
+df_combined['stress'] = y['stress']
 
 print("Average RMSSD: ", df_clean['avg_rmssd'])
 
 # Compute pairwise correlations specifically against 'anxiety'
 results = pg.pairwise_corr(df_combined, columns=['anxiety'])
+# print("Available columns:", results.columns.tolist())
+
+# Filter results so you only see anxiety vs all other X_scaled features
+# It automatically provides columns 'CI95%' as a list [lower, upper]
+print(results[['X', 'Y', 'r', 'n', 'CI95', 'p_unc']])
+
+# Compute pairwise correlations specifically against 'stress'
+results = pg.pairwise_corr(df_combined, columns=['stress'])
 # print("Available columns:", results.columns.tolist())
 
 # Filter results so you only see anxiety vs all other X_scaled features

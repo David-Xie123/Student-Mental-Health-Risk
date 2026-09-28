@@ -29,5 +29,7 @@ data_frames = [df_stress, df_hrv, df_sleep, df_activity, df_steps, df_oxygen]
 
 merged_df = reduce(lambda left, right: pd.merge(left, right, on='date', how='left'), data_frames)
 
+merged_df['subject']=file_path.name
+
 # 5. Export to a final combined CSV file
 merged_df.to_csv(file_path / 'merged_health_data.csv', index=False)

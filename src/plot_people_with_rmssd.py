@@ -9,8 +9,8 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-OUT = "C:/Users/david/Documents/Research/Student-Mental-Health-Risk/data"
-FIG = "C:/Users/david/Documents/Research/Student-Mental-Health-Risk/figures"
+OUT = "/sessions/pensive-trusting-maxwell/mnt/outputs"
+FIG = "/sessions/pensive-trusting-maxwell/mnt/student_mental_health/analysis/figures"
 
 INK = "#3f4b57"; MUTED = "#8a97a3"; GRID = "#c9d2da"
 BLUE = "#3b82f6"; AMBER = "#f59e0b"; ROSE = "#f43f5e"; TEAL = "#14b8a6"
@@ -23,7 +23,7 @@ plt.rcParams.update({
     "axes.spines.top": False, "axes.spines.right": False, "figure.dpi": 170,
 })
 
-df = pd.read_csv(f"{OUT}/combined_health_data.csv")
+df = pd.read_csv(f"{OUT}/ssaqs_analysis_table.csv")
 
 g = df.groupby("subject")["stress"]
 order = g.mean().sort_values().index
@@ -32,7 +32,7 @@ lo = df.groupby("subject")["stress"].quantile(.25).loc[order].values
 hi = df.groupby("subject")["stress"].quantile(.75).loc[order].values
 mu = g.mean().loc[order].values
 mua = df.groupby("subject")["anxiety"].mean().loc[order].values
-rmssd = df.groupby("subject")["avg_rmssd"].mean().reindex(order)
+rmssd = df.groupby("subject")["hrv_rmssd_night"].mean().reindex(order)
 
 fig, ax = plt.subplots(figsize=(10.5, 4.0))
 ax.vlines(x, lo, hi, color=BLUE, alpha=.4, lw=5, zorder=2)
@@ -62,7 +62,7 @@ paired = pd.DataFrame({"stress": mu, "rmssd": rmssd.values})
 paired = paired.dropna()
 r = np.corrcoef(paired.stress, paired.rmssd)[0, 1]
 ax.set_title("Person differences dominate: mean stress ranges "
-             f"{mu.min():.0f} → {mu.max():.0f}, mean RMSSD "
+             f"{mu.min():.0f} → {mu.max():.0f}, mean night RMSSD "
              f"{np.nanmin(rmssd.values):.0f}→{np.nanmax(rmssd.values):.0f} ms "
              f"across the same participants\n"
              f"between-person r(mean stress, mean RMSSD) = {r:+.2f}, "

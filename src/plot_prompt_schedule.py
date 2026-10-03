@@ -23,8 +23,8 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 
-OUT = "/sessions/pensive-trusting-maxwell/mnt/outputs"
-FIG = "/sessions/pensive-trusting-maxwell/mnt/student_mental_health/analysis/figures"
+OUT = "C:/Users/david/Documents/Research/Student-Mental-Health-Risk/clean_data"
+FIG = "C:/Users/david/Documents/Research/Student-Mental-Health-Risk/figures"
 NIGHT_WINDOW_H = 10          # build_table.py: onset + 10 h, truncated at prompt
 
 MM = 1 / 25.4

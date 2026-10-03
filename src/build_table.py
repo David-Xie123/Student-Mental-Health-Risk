@@ -14,8 +14,8 @@ import pandas as pd
 
 warnings.filterwarnings("ignore")
 
-BASE = "/Users/ruizhang/work/student-mental-health/data"
-OUT = "/Users/ruizhang/work/student-mental-health/outputs"
+BASE = "C:/Users/david/Documents/Research/Student-Mental-Health-Risk/data"
+OUT = "C:/Users/david/Documents/Research/Student-Mental-Health-Risk/clean_data"
 os.makedirs(OUT, exist_ok=True)
 
 EXCLUDE = {3, 12, 14}

@@ -27,6 +27,8 @@
 \author{\textbf{David Xie} \\ Department of Applied Statistics and Probability, UC Santa Barbara}
 % \date{\today}
 
+\DeclareUnicodeCharacter{2248}{\ensuremath{\approx}}
+
 % 4. CORE CONTENT
 \begin{document}
 
@@ -219,10 +221,29 @@ Heterogeneity tests supported genuine between-participant differences for the HR
 
 Sensitivity analysis. Pairing with whole-day instead of overnight means gave essentially the same picture: pooled correlations remained between -0.04 and +0.02 for the HRV and SpO2 measures, and heterogeneity was again strongest for RMSSD (I² = 57\% for anxiety, 67\% for stress). Because HRV is recorded only during sleep, the whole-day HRV mean is itself an overnight quantity. One difference: whole-day SpO2 showed significant heterogeneity for stress (I² = 42\%, p = .009), which overnight SpO2 did not (I² = 0\%); whole-day SpO2 includes waking readings, and we did not investigate the reason. The sleep-score results are identical in both analyses by construction.
 
+\section{Discussion}
 
+The central finding is that the correlation between wearable-derived physiology and self-reported stress or anxiety is not uniform across people. Within the same cohort and with the same device, one student's higher overnight RMSSD went with higher reported stress, another's with lower, and the random-effects average was near zero. For HRV, this heterogeneity exceeded what sampling error alone would produce, suggesting that the spread reflects real differences in how physiology and self-reported stress relate across individuals rather than merely noisy estimates.
+
+Several mechanisms could produce such idiosyncratic relationships, and our data cannot separate them: differences in autonomic reactivity to stressors; differences in baseline HRV, which determines how much room a stressor has to move it and which varies widely between people; coping style, which can shift stress physiology and its subjective appraisal in opposite directions; and differences in how stress is expressed behaviorally and reported on a rating scale. The self-report data support the latter: participant mean stress spanned 12 to 89 on a 0-100 scale, and 38\% of the variance in daily stress lay between participants, so the same score does not mean the same experience for different people.
+
+The results fit the existing literature. Personalized models outperform pooled ones in wearable emotion recognition \cite{reference_5}; the consumer-wearable stress literature shows wide, hard-to-compare performance and frequent leakage when data are not split by participant \cite{reference_4}; and the SSAQS authors found essentially no correlation between the device stress score and self-reported stress \cite{reference_9}. The consistent small negative association between sleep score and stress and anxiety agrees in direction with the sleep and stress findings in first-year students \cite{reference_6}, although our effect is small (r $\approx$ -0.09). The slightly positive median correlation between overnight RMSSD and stress is opposite to the textbook expectation that stress lowers vagally mediated HRV \cite{reference_10, reference_11}; given the wide intervals and the sign split across people, we do not interpret it as a real reversal.
+
+A supplementary observation is consistent with this picture. In preliminary pooled prediction experiments (not reported in detail here), regression models using these wearable features alone did not outperform predicting the training mean on held-out participants (R² between about -0.16 and -0.52); positive held-out R² (about 0.23-0.36) appeared only when each participant's own recent self-reports were added as predictors, which reflects day-to-day persistence of mood. A single population-wide mapping from physiology to stress would therefore be expected to perform poorly if individual relationships differ in sign and size.
+
+\subsection{Limitations}
+
+\begin{itemize}
+  \item Precision per participant is limited. With 50-100 paired days, a participant's 95\% interval spans roughly 0.5 correlation units, so individual coefficients should be read as exploratory; we did not adjust for multiple comparisons. The heterogeneity statistics address this at the cohort level, and they did not support between-participant differences for overnight SpO2 or sleep score.
+  \item The outcome is a single retrospective rating of the day's average stress or anxiety, whereas HRV and SpO2 are measured overnight. Temporal mismatch and recall bias attenuate correlations, and within-day stress timing cannot be resolved.
+  \item Wearable data are incomplete (HRV on about 55\% of labeled days) and consumer-grade; missing nights may not be random. Seven wearable participants lacked enough paired nights, and three had no wearable data, so findings describe participants with reasonable compliance.
+  \item The cohort is small and homogeneous (computer science and mathematics students at two Mexican universities, mostly male), limiting generalization.
+  \item Correlations are associational and same-day or preceding-night; they do not show that stress changes physiology or the reverse, and the proposed explanations for idiosyncrasy were not tested.
+  \item Participant-level confounders (baseline fitness, caffeine, illness, menstrual cycle, academic calendar) were not available.
+\end{itemize}
 
 \section{Conclusion}
-This concludes the default structural blueprint of the document.
+In this cohort of college students, correlation strength and direction between self-reported stress or anxiety and wearable-derived physiological measures varied substantially across participants. The group-level mean correlation was effectively close to zero based on this dataset. These findings indicate that the psychological stress-to-physiological relationship is highly idiosyncratic rather than uniform, reflecting individual differences in autonomic reactivity, baseline HRV, coping style, and behavioral expression of stress. Statistically, this was clearest for HRV-based measures, while sleep score showed a small, consistent negative association. Practically, population-level models should not be expected to translate wearable signals into stress estimates reliably; individualized baselines and per-person modeling, supported by longer monitoring per participant and higher-frequency stress labels, are the more promising direction.
 
 % 5. BIBLIOGRAPHY & REFERENCES
 \begin{thebibliography}{99}

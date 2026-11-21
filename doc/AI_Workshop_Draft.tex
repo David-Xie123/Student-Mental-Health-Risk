@@ -43,20 +43,20 @@ Wearable devices allow physiological signals to be recorded continuously, yet it
 \section{Introduction}
 
 \subsection{Background}
-Stress and anxiety are common among university students and affect academic performance and wellbeing, while barriers such as stigma and limited time restrict access to conventional mental care \cite{reference 6}. Consumer wearables offer a low-burden way to observe physiology outside the laboratory, and a large literature now asks whether those signals can be used to monitor, and ultimately predict, psychological stress
+Stress and anxiety are common among university students and affect academic performance and wellbeing, while barriers such as stigma and limited time restrict access to conventional mental care \cite{reference 1}. Consumer wearables offer a low-burden way to observe physiology outside the laboratory, and a large literature now asks whether those signals can be used to monitor, and ultimately predict, psychological stress
 
-The physiological rationale centres on the autonomic nervous system. Time-domain heart rate variability (HRV), in particular the root mean square of successive differences between heartbeats (RMSSD), is generally interpreted as an index of parasympathetic (vagal) activity, and stress is expected to lower it \cite{reference 1}; the ratio of low-frequency to high-frequency spectral power (LF/HF) has been used as a marker of sympathovagal balance, although that interpretation is contested \cite{reference 8, reference 9}. Sleep duration and quality and blood oxygen saturation (SpO2) are further candidate correlates of next-day stress.
+The physiological rationale centres on the autonomic nervous system. Time-domain heart rate variability (HRV), in particular the root mean square of successive differences between heartbeats (RMSSD), is generally interpreted as an index of parasympathetic (vagal) activity, and stress is expected to lower it \cite{reference 2}; the ratio of low-frequency to high-frequency spectral power (LF/HF) has been used as a marker of sympathovagal balance, although that interpretation is contested \cite{reference 3, reference 4}. Sleep duration and quality and blood oxygen saturation (SpO2) are further candidate correlates of next-day stress.
 
 \subsection{Related Work}
-Recent advances in wearable technology have created new opportunities to investigate these relationships outside of controlled laboratory environments. Consumer wearable devices can continuously collect physiological and behavioral measurements, while mobile applications can collect repeated assessments of an individual's psychological state. This combination has been described as a form of digital phenotyping, in which passively collected physiological data and ecological momentary assessments can be used to characterize changes in health and emotional states in real-world settings \cite{reference 2}. Unlike traditional studies that rely on a single laboratory measurement or retrospective questionnaire, longitudinal wearable data can capture physiological and behavioral changes over extended periods of everyday life.
+Recent advances in wearable technology have created new opportunities to investigate these relationships outside of controlled laboratory environments. Consumer wearable devices can continuously collect physiological and behavioral measurements, while mobile applications can collect repeated assessments of an individual's psychological state. This combination has been described as a form of digital phenotyping, in which passively collected physiological data and ecological momentary assessments can be used to characterize changes in health and emotional states in real-world settings \cite{reference 5}. Unlike traditional studies that rely on a single laboratory measurement or retrospective questionnaire, longitudinal wearable data can capture physiological and behavioral changes over extended periods of everyday life.
 
-Recent research has also emphasized the potential importance of physical activity when examining the relationship between emotional distress and HRV. In a longitudinal study of STEM graduate students using wearable devices and daily ecological momentary assessments, higher emotional distress was associated with lower HRV, while greater daily physical activity was associated with higher HRV specifically on days characterized by high emotional distress \cite{reference 2}. These findings suggest that physiological responses to psychological distress may depend not only on the level of distress itself but also on behavioral factors such as physical activity. More broadly, the integration of wearable-derived physiological measurements with repeated self-reported assessments provides an opportunity to investigate the dynamic and potentially individualized relationship between psychological experiences and physiological responses.
+Recent research has also emphasized the potential importance of physical activity when examining the relationship between emotional distress and HRV. In a longitudinal study of STEM graduate students using wearable devices and daily ecological momentary assessments, higher emotional distress was associated with lower HRV, while greater daily physical activity was associated with higher HRV specifically on days characterized by high emotional distress \cite{reference 5}. These findings suggest that physiological responses to psychological distress may depend not only on the level of distress itself but also on behavioral factors such as physical activity. More broadly, the integration of wearable-derived physiological measurements with repeated self-reported assessments provides an opportunity to investigate the dynamic and potentially individualized relationship between psychological experiences and physiological responses.
 
-Laboratory benchmarks such as WESAD, which records chest- and wrist-worn signals from 15 participants during induced stress, amusement, and baseline conditions, have supported classifiers with high binary accuracy \cite{reference 3}. Performance in free-living settings is considerably less consistent. A recent scoping review of 34 studies on wearable-based stress modeling in naturalistic settings found that most used classical machine learning (Random Forest most often), that reported F1-scores spanned 0.23-0.90, that stress labels were almost always self-reported through ecological momentary assessment (EMA), and that roughly 46\% of applicable studies showed likely data leakage from splitting data by observation rather than by participant \cite{reference 4}. Only about one in eight studies attempted forecasting rather than concurrent detection \cite{reference 4}.
+Laboratory benchmarks such as WESAD, which records chest- and wrist-worn signals from 15 participants during induced stress, amusement, and baseline conditions, have supported classifiers with high binary accuracy \cite{reference 6}. Performance in free-living settings is considerably less consistent. A recent scoping review of 34 studies on wearable-based stress modeling in naturalistic settings found that most used classical machine learning (Random Forest most often), that reported F1-scores spanned 0.23-0.90, that stress labels were almost always self-reported through ecological momentary assessment (EMA), and that roughly 46\% of applicable studies showed likely data leakage from splitting data by observation rather than by participant \cite{reference 7}. Only about one in eight studies attempted forecasting rather than concurrent detection \cite{reference 4}.
 
-Individual differences are a recurring difficulty. Personalized models have been reported to outperform generalized models for emotion recognition from consumer wearables, at the cost of needing labeled data from each person \cite{reference 5}. Studies in student populations illustrate both the promise and the limits of the approach. In 525 first-year college students wearing Oura rings, longer total sleep time, lower resting heart rate, higher HRV, and lower respiratory rate were each associated with lower odds of moderate-to-high weekly stress in mixed-effects models, with small per-unit effects \cite{reference 6}. A pre-trained model for momentary anxiety in socially anxious students reached only 60.4\% balanced accuracy \cite{reference 7}. In a 12-week randomized trial (n = 117), a smartwatch-derived measure of stress moments fell in the intervention arm while self-reported stress and anxiety scores did not differ between arms, a reminder that objective and subjective stress measures can diverge \cite{reference 8}.
+Individual differences are a recurring difficulty. Personalized models have been reported to outperform generalized models for emotion recognition from consumer wearables, at the cost of needing labeled data from each person \cite{reference 8}. Studies in student populations illustrate both the promise and the limits of the approach. In 525 first-year college students wearing Oura rings, longer total sleep time, lower resting heart rate, higher HRV, and lower respiratory rate were each associated with lower odds of moderate-to-high weekly stress in mixed-effects models, with small per-unit effects \cite{reference 2}. A pre-trained model for momentary anxiety in socially anxious students reached only 60.4\% balanced accuracy \cite{reference 7}. In a 12-week randomized trial (n = 117), a smartwatch-derived measure of stress moments fell in the intervention arm while self-reported stress and anxiety scores did not differ between arms, a reminder that objective and subjective stress measures can diverge \cite{reference 3}.
 
-The dataset analysed here, SSAQS, makes that divergence explicit: its authors report a Pearson correlation of only 0.048 between the Fitbit-computed stress score and the self-reported stress score \cite{reference 9}. The device score reflects physiological signs of arousal derived from heart rate, sleep and activity, whereas the questionnaire captures self-perceived mental stress \cite{reference 9}. Whether the raw physiological signals relate to self-reported stress and anxiety, and whether that relationship is similar from one student to the next, has not been characterized for this dataset.
+The dataset analysed here, SSAQS, makes that divergence explicit: its authors report a Pearson correlation of only 0.048 between the Fitbit-computed stress score and the self-reported stress score \cite{reference 4}. The device score reflects physiological signs of arousal derived from heart rate, sleep and activity, whereas the questionnaire captures self-perceived mental stress \cite{reference 4}. Whether the raw physiological signals relate to self-reported stress and anxiety, and whether that relationship is similar from one student to the next, has not been characterized for this dataset.
 
 
 \subsection{Objectives}
@@ -268,31 +268,31 @@ In this cohort of college students, correlation strength and direction between s
 \bibliographystyle{unsrt}
 \begin{thebibliography}{}
 \bibitem{reference 1}
-Kim H-G, Cheon E-J, Bai D-S, Hwan Lee Y, Koo B-H.  (2017). \textit{Stress and Heart Rate Variability: A Meta-Analysis and Review of the Literature}. Psychiatry Investig 2018;15(3):235-245.
-
-\bibitem{reference 2}
-Pinkerton C, Guo Y, Qu A.  (2026). \textit{Physical activity buffers physiological stress during high emotional distress: a wearable-derived prospective cohort study}. https://doi.org/10.64898/2026.04.05.26350215.
-
-\bibitem{reference 3}
-Schmidt P, Reiss A, Duerichen R, Marberger C, Van Laerhoven K. Introducing WESAD, \textit{a multimodal dataset for wearable stress and affect detection}. In: Proceedings of the 20th ACM International Conference on Multimodal Interaction (ICMI '18). 2018:400-408. doi:10.1145/3242969.3242985
-
-\bibitem{reference 4}
-Sharma S, Janakiraman AK, Chen LK. \textit{Machine learning frameworks for wearable-based stress modeling in naturalistic settings: scoping review}. JMIR mHealth uHealth. 2026;14:e76632. doi:10.2196/76632
-
-\bibitem{reference 5}
-Li J, Washington P. \textit{A comparison of personalized and generalized approaches to emotion recognition using consumer wearable devices: machine learning study}. JMIR AI. 2024;3:e52171. doi:10.2196/52171
-
-\bibitem{reference 6}
 Bloomfield LSP, Fudolig MI, Kim J, Llorin J, Lovato JL, McGinnis EW, McGinnis RS, Price M, Ricketts TH, Dodds PS, Stanton K, Danforth CM. \textit{Predicting stress in first-year college students using sleep data from wearable devices}. PLOS Digit Health. 2024;3(4):e0000473. doi:10.1371/journal.pdig.0000473
 
-\bibitem{reference 7}
-Ahmed MS, French N, Rucker M, Wang Z, Myers-Brower T, Petz K, Boukhechba M, Teachman BA, Barnes LE. \textit{WatchAnxiety: a transfer learning approach for state anxiety prediction from smartwatch data}. arXiv:2509.13725. 2025.
+\bibitem{reference 2}
+Kim H-G, Cheon E-J, Bai D-S, Hwan Lee Y, Koo B-H.  (2017). \textit{Stress and Heart Rate Variability: A Meta-Analysis and Review of the Literature}. Psychiatry Investig 2018;15(3):235-245.
 
-\bibitem{reference 8}
+\bibitem{reference 3}
 Ta, A., Salgin, N., Armstrong, C., Phillips Reindel, K., Mehta, R. K., McDonald, A., McCord, C., Sasangohar, F. \textit{Machine-learning enabled real-time stress monitoring, detection, and management in college students: a wearable technology approach}. IISE Transactions on Healthcare Systems Engineering, (2026) 1–14. https://doi.org/10.1080/24725579.2026.2685699
 
-\bibitem{reference 9}
+\bibitem{reference 4}
 García-Ceja E, Alvarado-Uribe J, Escamilla-Ambrosio PJ, Lara A, Mena-Martínez A, Gallegos-García G, González-Mendoza M, Monroy R, Martínez Luna G, Fernández-Cárdenas JM. \textit{A dataset of university students' stress and anxiety levels based on questionnaires and wearable sensors}. Sci Data. 2026;13:732. doi:10.1038/s41597-026-07085-7
+
+\bibitem{reference 5}
+Pinkerton C, Guo Y, Qu A.  (2026). \textit{Physical activity buffers physiological stress during high emotional distress: a wearable-derived prospective cohort study}. https://doi.org/10.64898/2026.04.05.26350215.
+
+\bibitem{reference 6}
+Schmidt P, Reiss A, Duerichen R, Marberger C, Van Laerhoven K. Introducing WESAD, \textit{a multimodal dataset for wearable stress and affect detection}. In: Proceedings of the 20th ACM International Conference on Multimodal Interaction (ICMI '18). 2018:400-408. doi:10.1145/3242969.3242985
+
+\bibitem{reference 7}
+Sharma S, Janakiraman AK, Chen LK. \textit{Machine learning frameworks for wearable-based stress modeling in naturalistic settings: scoping review}. JMIR mHealth uHealth. 2026;14:e76632. doi:10.2196/76632
+
+\bibitem{reference 8}
+Li J, Washington P. \textit{A comparison of personalized and generalized approaches to emotion recognition using consumer wearable devices: machine learning study}. JMIR AI. 2024;3:e52171. doi:10.2196/52171
+
+\bibitem{reference 9}
+Ahmed MS, French N, Rucker M, Wang Z, Myers-Brower T, Petz K, Boukhechba M, Teachman BA, Barnes LE. \textit{WatchAnxiety: a transfer learning approach for state anxiety prediction from smartwatch data}. arXiv:2509.13725. 2025.
 
 \bibitem{reference 10}
 Bonett DG, Wright TA. \textit{Sample size requirements for estimating Pearson, Kendall and Spearman correlations}. Psychometrika. 2000;65(1):23-28.

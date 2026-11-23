@@ -22,8 +22,8 @@ import statlib as S
 
 warnings.filterwarnings("ignore")
 
-OUT = "C:/Users/david/Documents/Research/Student-Mental-Health-Risk/clean_data"
-FIG = "C:/Users/david/Documents/Research/Student-Mental-Health-Risk/figures"
+OUT = "/Users/ruizhang/work/student-mental-health/clean_data"
+FIG = "/Users/ruizhang/work/student-mental-health/figures"
 os.makedirs(FIG, exist_ok=True)
 
 INK = "#7c8798"; BLUE = "#3b82f6"; AMBER = "#f59e0b"
